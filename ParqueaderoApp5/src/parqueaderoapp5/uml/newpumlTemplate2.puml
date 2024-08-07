@@ -1,0 +1,83 @@
+@startuml
+package parqueaderoapp5 {
+
+    class ParqueaderoApp5 {
+        +start(Stage primaryStage) : void
+        +main(String[] args) : void
+    }
+
+    package controllers {
+        class MainController {
+            -TableView<Vehiculo> vehiculosTable
+            -TableColumn<Vehiculo, String> placaColumn
+            -TableColumn<Vehiculo, String> marcaColumn
+            -TableColumn<Vehiculo, String> modeloColumn
+            -TableColumn<Vehiculo, String> colorColumn
+            -TextField placaField
+            -TextField marcaField
+            -TextField modeloField
+            -TextField colorField
+            -TextField searchField
+            -Label searchMessage
+            -Label errorMessage
+            -VehiculoController vehiculoController
+            -ObservableList<Vehiculo> vehiculosData
+
+            +initialize() : void
+            +validateFields() : boolean
+            +validatePlaca(String placa) : boolean
+            +validateColor(String color) : boolean
+            +isPlacaUnique(String placa) : boolean
+            +handleAddVehiculo(ActionEvent event) : void
+            +handleDeleteVehiculo(ActionEvent event) : void
+            +handleUpdateVehiculo(ActionEvent event) : void
+            +handleTableClick(MouseEvent event) : void
+            +handleSearchVehiculo(ActionEvent event) : void
+            +handleClearSearch(ActionEvent event) : void
+            +clearFields() : void
+        }
+
+        class VehiculoController {
+            -MongoDatabase database
+            -MongoCollection<Document> collection
+
+            +VehiculoController()
+            +addVehiculo(Vehiculo vehiculo) : void
+            +updateVehiculo(Vehiculo vehiculo) : void
+            +deleteVehiculo(String placa) : void
+            +getVehiculoByPlaca(String placa) : Vehiculo
+            +getAllVehiculos() : List<Vehiculo>
+        }
+    }
+
+    package models {
+        class Vehiculo {
+            -StringProperty placa
+            -StringProperty marca
+            -StringProperty modelo
+            -StringProperty color
+
+            +Vehiculo(String placa, String marca, String modelo, String color)
+            +getPlaca() : String
+            +setPlaca(String placa) : void
+            +placaProperty() : StringProperty
+            +getMarca() : String
+            +setMarca(String marca) : void
+            +marcaProperty() : StringProperty
+            +getModelo() : String
+            +setModelo(String modelo) : void
+            +modeloProperty() : StringProperty
+            +getColor() : String
+            +setColor(String color) : void
+            +colorProperty() : StringProperty
+        }
+    }
+}
+
+ParqueaderoApp5 "1" *-- "1" MainController : usa
+MainController "1" *-- "1" VehiculoController : compone
+MainController "1" *-- "0..*" Vehiculo : gestiona
+VehiculoController "1" *-- "0..*" Vehiculo : maneja
+VehiculoController "1" o-- "1" MongoDatabase : conecta
+VehiculoController "1" o-- "1" MongoCollection : opera
+@enduml

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ParqueaderoApp5.jnlp">
+  <information>
+    <title>ParqueaderoApp5</title>
+    <vendor>Adrian</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="ParqueaderoApp5.jar" size="9687" download="eager" />
+    <jar href="lib\bson-5.1.2.jar" size="508114" download="eager" />
+    <jar href="lib\javafx-swt.jar" size="37082" download="eager" />
+    <jar href="lib\javafx.base.jar" size="757141" download="eager" />
+    <jar href="lib\javafx.controls.jar" size="2599770" download="eager" />
+    <jar href="lib\javafx.fxml.jar" size="130699" download="eager" />
+    <jar href="lib\javafx.graphics.jar" size="4318494" download="eager" />
+    <jar href="lib\javafx.media.jar" size="278661" download="eager" />
+    <jar href="lib\javafx.swing.jar" size="90416" download="eager" />
+    <jar href="lib\javafx.web.jar" size="728868" download="eager" />
+    <jar href="lib\mongo-java-driver-3.11.2-javadoc.jar" size="4126528" download="eager" />
+    <jar href="lib\mongodb-driver-core-5.1.2.jar" size="1704223" download="eager" />
+    <jar href="lib\mongodb-driver-sync-5.1.2.jar" size="153554" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="parqueaderoapp5.ParqueaderoApp5"  name="ParqueaderoApp5" />
+  <update check="always"/>
+</jnlp>
