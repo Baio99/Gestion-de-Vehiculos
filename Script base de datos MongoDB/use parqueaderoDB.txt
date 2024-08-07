@@ -1,0 +1,35 @@
+use parqueaderoDB
+db.createCollection("vehiculos")
+
+db.vehiculos.insertMany([
+  {
+    "placa": "ABC123",
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "color": "Rojo"
+  },
+  {
+    "placa": "DEF456",
+    "marca": "Honda",
+    "modelo": "Civic",
+    "color": "Azul"
+  },
+  {
+    "placa": "GHI789",
+    "marca": "Ford",
+    "modelo": "Mustang",
+    "color": "Negro"
+  },
+  {
+    "placa": "JKL012",
+    "marca": "Chevrolet",
+    "modelo": "Spark",
+    "color": "Blanco"
+  },
+  {
+    "placa": "MNO345",
+    "marca": "Nissan",
+    "modelo": "Sentra",
+    "color": "Gris"
+  }
+])
